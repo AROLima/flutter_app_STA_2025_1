@@ -16,7 +16,7 @@ class MyBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       padding: EdgeInsetsGeometry.zero,
-      color: Colors.blue, // Cor de fundo do BottomAppBar
+      color: Colors.indigo, // Cor de fundo do BottomAppBar
       // Ajuste a altura do BottomAppBar envolvendo o Row em um SizedBox
       child: SizedBox(
         height: 0.0, // <-- Defina a altura desejada aqui (valor padrão é 56.0)

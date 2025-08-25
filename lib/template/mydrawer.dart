@@ -57,7 +57,7 @@ class MyDrawer extends StatelessWidget {
             leading: const Icon(Icons.lock),
             onTap: () {
               Navigator.pop(context);
-              Navigator.pushNamed(context, '/info');
+              Navigator.pushNamed(context, '/policies');
             },
           ),
 
