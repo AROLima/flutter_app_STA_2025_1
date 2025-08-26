@@ -33,6 +33,10 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           // Widgets de Column
           children: [
+            SizedBox(
+              child: Image.network('https://cdn.prod.website-files.com/5ee12d8e99cde2e20255c16c/6568c2ba1a8d8d7e70db140e_FlutterConf%20Extended%20(1).png'),
+            ),
+            SizedBox(height: 20),
             const Text('Esta é uma Página Stateless!'),
             const SizedBox(height: 20),
             const Text('Essa é a página inicial'),
