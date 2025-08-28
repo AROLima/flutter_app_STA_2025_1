@@ -3,15 +3,12 @@ library;
 /// Aplicativo principal
 /// Contém a configuração do MaterialApp e as rotas nomeadas
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../pages/contacts_page.dart'; //Contact Page
+import '../pages/contacts_page.dart';
 import '../pages/home_page.dart'; // Home Page
 import 'config.dart'; // Configurações do App
-import '../pages/search_page.dart'; //Search page
-import '../pages/info_page.dart'; //Info page
-import '../pages/policies_page.dart'; //Policies page
-
 
 // MyApp é um StatelessWidget, o que significa que seu estado não muda ao longo do tempo.
 // Ele define a estrutura básica do aplicativo, incluindo o tema e as rotas.
@@ -43,9 +40,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         '/contacts': (context) => const ContactsPage(),
-        '/search': (context) => const SearchPage(),
-        '/info': (context) => const InfoPage(),
-        '/policies':(context) => const PoliciesPage(),
+        //'/search': (context) => const SearchPage(),
+        //'/info': (context) => const InfoPage(),
       },
     );
   }

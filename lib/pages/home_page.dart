@@ -14,41 +14,69 @@ import 'package:flutter/material.dart';
 import '../template/config.dart';
 import '../template/myfooter.dart';
 
-final pageName = Config.appName;
+var pageName = Config.appName;
 
-// Página inicial
+// Página inicial do aplicativo
 class HomePage extends StatelessWidget {
   // Construtor
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // Barra superior
-      appBar: MyAppBar(title: pageName,),
+    // LayoutBuilder permite ajustar o conteúdo para resoluções diferentes
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // Se a largura é de 1080+
+        if (constraints.maxWidth > 1080) {
+          // Versão para desktop
+          return Row(
+            children: [
+              const MyDrawer(), // O menu lateral fixo
+              Expanded(
+                // Usei um Scaffold aninhado para ter uma AppBar na página
+                child: Scaffold(
+                  appBar: MyAppBar(title: pageName),
+                  // O conteúdo principal da página
+                  body: Center(child: PageContent()),
+                ),
+              ),
+            ],
+          );
+        } else {
+          // Versão para mobile/tablet
+          return Scaffold(
+            appBar: MyAppBar(title: pageName),
+            drawer: const MyDrawer(), // O menu deslizante
+            body: Center(child: PageContent()),
+          );
+        }
+      },
+    );
+  }
+}
 
-      // Corpo da página com conteúdo centralizado
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          // Widgets de Column
-          children: [
-            SizedBox(
-              child: Image.network('https://cdn.prod.website-files.com/5ee12d8e99cde2e20255c16c/6568c2ba1a8d8d7e70db140e_FlutterConf%20Extended%20(1).png'),
-            ),
-            SizedBox(height: 20),
-            const Text('Esta é uma Página Stateless!'),
-            const SizedBox(height: 20),
-            const Text('Essa é a página inicial'),
-          ],
-        ),
-      ),
+// Conteúdo da página atual a ser usado em qualquer resolução
+class PageContent extends StatelessWidget {
+  // Parâmetro com valor padrão 'false'
+  final bool showTitle;
 
-      // Barra inferior (footer)
-      bottomNavigationBar: MyBottomNavBar(),
+  const PageContent({super.key, this.showTitle = false});
 
-      // Menu lateral (hamburger)
-      drawer: MyDrawer(),
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        // A sintaxe "if" em uma coleção (collection if)
+        if (showTitle)
+          const Text(
+            Config.appName,
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+        const Text('Esta é uma Página Stateless!'),
+        const SizedBox(height: 20),
+        const Text('Essa é a página principal'),
+      ],
     );
   }
 }

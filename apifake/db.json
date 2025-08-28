@@ -1,0 +1,40 @@
+{
+  "contacts": [
+    {
+      "name": "lestat",
+      "email": "vampir@vampiro.com",
+      "subject": "não sei",
+      "message": " ééééé gata",
+      "id": 1
+    },
+    {
+      "name": "dadd",
+      "email": "adad@adads",
+      "subject": "dadsda",
+      "setor": "Comercial",
+      "message": "adadad",
+      "id": 2
+    }
+  ],
+  "items": [],
+  "users": [
+    {
+      "id": 1,
+      "name": "Joca da Silva",
+      "email": "joca@email.com",
+      "password": "Senha@123",
+      "birth": "2000-10-18",
+      "photo": "3267198297632D4JM8DJ73.png",
+      "status": "ON"
+    },
+    {
+      "id": 2,
+      "name": "Marineuza Siriliano",
+      "email": "marineuza@email.com",
+      "password": "Senha@123",
+      "birth": "1984-01-05",
+      "photo": "FN87Y6J053280F6J0235D7.png",
+      "status": "ON"
+    }
+  ]
+}
